@@ -39,6 +39,7 @@
     flex-direction: column; /* Stack icon and label vertically */
     align-items: center; /* Center align the icon and label */
     margin: 0 10px; /* Adjust horizontal spacing as needed */
+    width: 30%;
   }
 
   .label {
@@ -58,4 +59,11 @@
     width: 100%;
     position: absolute;
     bottom: 0;
+  }
+
+  .carousel{
+    width: 30%;
+    position: fixed;
+    left: 35%;
+    /* top: 50%; */
   }

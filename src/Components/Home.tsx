@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import "../css/home.css"
 import {useNavigate} from 'react-router-dom'
+import Slider from 'react-slick';
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 const Home = () => {
 
     // const navigate = useNavigate();
@@ -9,21 +12,37 @@ const Home = () => {
     //     navigate(url);
     // }
     const [timestamp,setTimeStap]= useState<string>("");
+    const [showPhotos,setShowPhotos]= useState<boolean>(false);
     
     const grabTime = () => {
        const intervalId =  setInterval( () => {
             let currTime: Date = new Date();
             let stringDate: string = `${currTime.getHours()}:${currTime.getMinutes()}`
             setTimeStap( stringDate )
-        }, 60000)
+        }, 10000)
 
         return intervalId
     }
 
     useEffect( () => {
         const intervalId = grabTime();
-        clearInterval(intervalId);
-    }, [])
+        // clearInterval(intervalId);
+    })
+
+    const showModal = () => {
+        setShowPhotos(true);
+        console.log('here');
+    }
+
+    const carouselSettings = {
+        dots: true,
+        lazyLoad: true,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        initialSlide: 2
+      };
 
     return (
         <div className='video-background-container'>
@@ -45,8 +64,22 @@ const Home = () => {
                     </a>
                     <h3 className='label'>LinkedIn</h3>
                 </div>
-                
+                <div className='icon-label-wrapper'>
+                        <img className='icons' src='/gallery.png' onClick={() => showModal()}/>
+                    <h3 className='label'>Travel Photos</h3>
+                </div>
             </div>
+
+            { showPhotos && 
+              <Slider  className='carousel' {...carouselSettings}>
+                <div>
+                    <img  style={{width: '100%'}} src='/temp2.png'/>
+                </div>
+                <div>
+                    <img style={{width: '100%'}} src='/temp1.png'/>
+                </div>
+              </Slider>
+            }
             
                     
             
