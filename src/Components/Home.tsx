@@ -45,53 +45,54 @@ const Home = () => {
       };
 
     return (
-        <div className='video-background-container'>
-            <div className='content'>
-                <h1>Jeffrey Pernia</h1>
+        <div >
+            <div className={`video-background-container ${showPhotos ? 'blurry' : ''}`}>
+                <div className='content'>
+                    <h1>Jeffrey Pernia</h1>
+                </div>
+                <div className='left-third-styling'>
+
+                    <div className='icon-label-wrapper'>
+                        <a href='https://github.com/jpernia101' target='_blank' rel='noopener noreferrer'>
+                            <img className='icons' src='/github.png'/>
+                        </a>
+                        <h3 className='label'>Github</h3>
+                    </div>
+
+                    <div className='icon-label-wrapper'>
+                        <a href='https://linkedin.com/in/jeffrey-pernia' target='_blank' rel='noopener noreferrer'>
+                            <img className='icons' src='/linkedin.png'/>
+                        </a>
+                        <h3 className='label'>LinkedIn</h3>
+                    </div>
+                    <div className='icon-label-wrapper'>
+                            <img className='icons' src='/gallery.png' onClick={() => showModal()}/>
+                        <h3 className='label'>Travel Photos</h3>
+                    </div>
+                </div>
+ 
+                <video className='video-background' autoPlay loop muted>
+                    {/* media in the public folder can be referenced with just the / */}
+                    <source src="/bg1.mp4" type="video/mp4" />
+                </video>
+
+
+                <div className='footer'>
+                    <p>{timestamp}</p>
+                </div>
             </div>
-            <div className='left-third-styling'>
-
-                <div className='icon-label-wrapper'>
-                    <a href='https://github.com/jpernia101' target='_blank' rel='noopener noreferrer'>
-                        <img className='icons' src='/github.png'/>
-                    </a>
-                    <h3 className='label'>Github</h3>
-                </div>
-
-                <div className='icon-label-wrapper'>
-                    <a href='https://linkedin.com/in/jeffrey-pernia' target='_blank' rel='noopener noreferrer'>
-                        <img className='icons' src='/linkedin.png'/>
-                    </a>
-                    <h3 className='label'>LinkedIn</h3>
-                </div>
-                <div className='icon-label-wrapper'>
-                        <img className='icons' src='/gallery.png' onClick={() => showModal()}/>
-                    <h3 className='label'>Travel Photos</h3>
-                </div>
-            </div>
-
             { showPhotos && 
-              <Slider  className='carousel' {...carouselSettings}>
-                <div>
-                    <img  style={{width: '100%'}} src='/temp2.png'/>
-                </div>
-                <div>
-                    <img style={{width: '100%'}} src='/temp1.png'/>
-                </div>
-              </Slider>
+              <div className='carousel-wrapper'>
+                <Slider  className='carousel' {...carouselSettings}>  
+                    <div>
+                        <img  style={{width: '100%'}} src='/temp2.png'/>
+                    </div>
+                    <div>
+                        <img style={{width: '100%'}} src='/temp1.png'/>
+                    </div>
+                </Slider>
+              </div>
             }
-            
-                    
-            
-            <video className='background-video' autoPlay loop muted>
-                {/* media in the public folder can be referenced with just the / */}
-                <source src="/bg1.mp4" type="video/mp4" />
-            </video>
-
-
-            <div className='footer'>
-                <p>{timestamp}</p>
-            </div>
         </div>
     )
 }
