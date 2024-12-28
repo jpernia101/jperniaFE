@@ -1,0 +1,14 @@
+.font-color {
+    /* color: black!important; */
+}
+
+.nav-img{
+    width: 55px;
+    height: auto;
+    object-fit: cover;
+}
+
+.fa-icon {
+    fill: linear-gradient(to right, #FF0000, #FFFFFF);
+    
+  }
