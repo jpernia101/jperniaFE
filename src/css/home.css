@@ -66,9 +66,10 @@ html, body {
 .carousel-image {
   width: 75%;
   height: auto;
-  object-fit: cover;
+  object-fit: contain;
   margin: 0 auto;
   display: block;
+  aspect-ratio: 1;
 }
 .carousel-caption-p{
   margin-top: 0;
@@ -78,14 +79,6 @@ html, body {
 .section-style{
   display: flex;
 }
-.section-style::after{
-  content: '';
-  width: 70px;
-  height: 4px;
-  background-color: black;
-  margin: 22px 0 0 0;
-}
-
 
 
 .footer {
